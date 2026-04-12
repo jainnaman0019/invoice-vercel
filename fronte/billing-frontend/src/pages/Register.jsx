@@ -2,7 +2,7 @@ import React from "react";
 import toast from "react-hot-toast";
 import api from "../api/axios";
 import { useNavigate } from "react-router-dom";
-import Login from "./login";
+import Login from "./Login";
 
 const Register = () => {
   const [name, setName] = React.useState("");
