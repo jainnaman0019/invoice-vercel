@@ -10,7 +10,12 @@
     ],
     "routes": [
       { "src": "/api/(.*)", "dest": "api/index.js" },
-      { "handle": "filesystem" },
+  
+      {
+        "src": "/assets/(.*)",
+        "dest": "fronte/billing-frontend/dist/assets/$1"
+      },
+  
       {
         "src": "/(.*)",
         "dest": "fronte/billing-frontend/dist/index.html"
