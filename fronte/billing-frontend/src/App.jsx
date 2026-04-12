@@ -10,9 +10,15 @@ import ViewProducts from "./pages/ViewProducts";
 import ViewCustomers from "./pages/ViewCustomers";
 import toast from "react-hot-toast";
 import InvoiceDetail from "./pages/InvoiceDetail";
+import { Navigate } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
+    path: "/",
+    element: <Navigate to="/dashboard" />, // ✅ ADD THIS
+  },
+  {
+    
     path: "/dashboard",
     element: (
       <ProtectedRoute>
