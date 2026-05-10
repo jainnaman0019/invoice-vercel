@@ -20,15 +20,10 @@ app.use(async (req, res, next) => {
 });
 
 // ✅ CORS FIX (IMPORTANT FOR VERCEL)
-app.use(
-  cors({
-    origin: [
-      "https://invoice-vercel-sepia.vercel.app",
-      "http://localhost:5173"
-    ],
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: "*",   // ← allow all for now
+  credentials: false,
+}));
 
 app.use(express.json());
 app.use(cookieParser());
