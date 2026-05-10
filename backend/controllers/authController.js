@@ -53,17 +53,16 @@ const login=async (req,res)=>{
             return res.status(400).json({message:'password wrong'});
         }
         console.log("SIGN SECRET 👉", process.env.JWT_SECRET)
-        const token=jwt.sign(
+        const token = jwt.sign(
             {
-                userId:user._id,
-                role:user.role,
-                shopId:user.shopId,
-                name:user.name,
+              userId: user._id,
+              role: user.role,
+              shopId: user.shopId,
+              name: user.name,
             },
-            
-            "TEMP_SECRET_123",
-            {expiresIn:'7d'},
-        );
+            process.env.JWT_SECRET || "TEMP_SECRET_123",  // ← fix this
+            { expiresIn: "7d" }
+          );
 
         res.cookie("token", token, {
             httpOnly: true,
