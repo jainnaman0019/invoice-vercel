@@ -21,8 +21,10 @@ app.use(async (req, res, next) => {
 
 // ✅ CORS FIX (IMPORTANT FOR VERCEL)
 app.use(cors({
-  origin: "*",   // ← allow all for now
-  credentials: false,
+  origin: "*",
+  credentials: true,
+  methods: ["GET","POST","PUT","DELETE","PATCH"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
 app.use(express.json());
