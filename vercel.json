@@ -1,18 +1,5 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "fronte/billing-frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    },
-    {
-      "src": "backend/index.js",
-      "use": "@vercel/node"
-    }
-  ],
   "routes": [
     {
       "src": "/api/(.*)",
@@ -20,11 +7,14 @@
     },
     {
       "src": "/assets/(.*)",
-      "dest": "fronte/billing-frontend/dist/assets/$1"
+      "dest": "/fronte/billing-frontend/assets/$1"
+    },
+    {
+      "handle": "filesystem"
     },
     {
       "src": "/(.*)",
-      "dest": "fronte/billing-frontend/dist/index.html"
+      "dest": "/fronte/billing-frontend/index.html"
     }
   ]
 }
