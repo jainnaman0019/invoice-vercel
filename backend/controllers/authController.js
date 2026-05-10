@@ -67,8 +67,8 @@ const login=async (req,res)=>{
 
         res.cookie("token", token, {
             httpOnly: true,
-            secure: true,
-            sameSite: "none",
+            secure: true,        // ← MUST be true for cross-domain
+            sameSite: "none",    // ← MUST be "none" for cross-domain
             maxAge: 7 * 24 * 60 * 60 * 1000
           });
 
