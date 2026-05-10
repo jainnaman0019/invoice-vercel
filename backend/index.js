@@ -22,7 +22,10 @@ app.use(async (req, res, next) => {
 // ✅ CORS FIX (IMPORTANT FOR VERCEL)
 app.use(
   cors({
-    origin: ["https://invoice-vercel-sepia.vercel.app"],
+    origin: [
+      "https://invoice-vercel-sepia.vercel.app",
+      "http://localhost:5173"
+    ],
     credentials: true,
   })
 );
