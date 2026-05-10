@@ -60,7 +60,7 @@ const login=async (req,res)=>{
               shopId: user.shopId,
               name: user.name,
             },
-            process.env.JWT_SECRET || "TEMP_SECRET_123",  // ← fix this
+             "TEMP_SECRET_123",  // ← fix this
             { expiresIn: "7d" }
           );
 

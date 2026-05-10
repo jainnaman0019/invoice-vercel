@@ -75,7 +75,7 @@ const protect = (req, res, next) => {
   try {
     const decoded = jwt.verify(
       token,
-      process.env.JWT_SECRET || "TEMP_SECRET_123"  // use env var
+       "TEMP_SECRET_123"  // use env var
     );
     req.user = decoded;
     next();
