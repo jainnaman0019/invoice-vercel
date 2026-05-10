@@ -2,7 +2,7 @@ import axios from "axios";
 
 const api = axios.create({
   baseURL: "https://invoice-vercel-thcc.vercel.app/api",
-  withCredentials: false,
+  withCredentials: false,   // ← MUST be false
 });
 
 api.interceptors.request.use((config) => {
