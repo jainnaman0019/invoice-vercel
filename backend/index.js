@@ -1,6 +1,8 @@
 require("dotenv").config();
+
 const express = require("express");
 const app = express();
+
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
@@ -13,20 +15,21 @@ const CustomerRoutes = require("./routes/Customerroutes");
 const reportroutes = require("./routes/reportroutes");
 const invoicedetailroutes = require("./routes/invoicedetailroutes");
 
-// ✅ CONNECT DB FIRST (IMPORTANT)
+// ✅ CONNECT DB
 app.use(async (req, res, next) => {
   await connectDB();
   next();
 });
 
-// ✅ CORS FIX (IMPORTANT FOR VERCEL)
+// ✅ CORS
 app.use(cors({
-  origin: "*",
+  origin: "https://invoice-vercel-sepia.vercel.app",
   credentials: true,
-  methods: ["GET","POST","PUT","DELETE","PATCH"],
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
+// ✅ MIDDLEWARES
 app.use(express.json());
 app.use(cookieParser());
 
@@ -43,5 +46,5 @@ app.get("/", (req, res) => {
   res.send("API running...");
 });
 
-// ❌ NO app.listen here (VERCEL)
+// ✅ EXPORT FOR VERCEL
 module.exports = app;
